@@ -1,12 +1,10 @@
 name: Container Description
 
 on: 
-  push:
-    tags:
-      - "desc-*"
+  workflow_dispatch:
 
 jobs:
-  running-ansible-script:
+  running-ansible-script-dockerlog:
     runs-on: local-master
 
     steps:
