@@ -1,0 +1,44 @@
+---
+
+- name: Deploy a service
+  loop: "{{ services }}"
+  community.docker.docker_swarm_service:
+    state: present
+    name: "{{ item.name_service }}"
+    image: "{{ item.image }}"
+    replicas: "{{ item.replica }}"
+    publish:
+      - target_port: "{{ item.port }}"
+        published_port: "{{ item.publish_port }}"
+        mode: "{{ item.net_mode }}"
+    # healthcheck:
+    #   test: ["CMD", "curl", "--fail", "https://www.nginx.com/"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 1
+    #   start_period: 30s
+    reservations:
+      cpus: 0.25
+      memory: 20M
+    limits:
+      cpus: 0.50
+      memory: 50M
+    restart_config:
+      condition: on-failure
+      delay: 5s
+      max_attempts: 3
+      window: 120s
+    env:
+      APP: development
+      AUTHOR: natannegara
+    mounts:
+      - source: "{{ item.mount_src }}"
+        target: "{{ item.mount_dst }}"
+        type: "{{ item.mount_type }}"
+
+- name: Remove Service
+  loop: "{{ delete_services }}"
+  community.docker.docker_swarm_service:
+    state: absent
+    name: "{{ item }}"
+  when: ( delete_services|length ) >= 1 

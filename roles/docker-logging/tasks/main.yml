@@ -1,0 +1,12 @@
+---
+
+- name: Get info from a service
+  community.docker.docker_swarm_service_info:
+    name: "{{ item.name_service }}"
+  loop: "{{ services }}"
+  register: output
+
+- name: print the description
+  loop: "{{ output.results }}"
+  debug:
+    var: "{{ item }}"

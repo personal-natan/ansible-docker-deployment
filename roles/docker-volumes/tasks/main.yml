@@ -1,0 +1,19 @@
+---
+# tasks file for roles/docker-volumes
+- name: Create a volume
+  loop: "{{ volumes }}"
+  community.docker.docker_volume:
+    name: "{{ item.name }}"
+
+- name: Delete Volume
+  community.docker.docker_volume:
+    state: absent
+    name: "{{ item }}"
+  loop: "{{ delete_volumes }}"
+  when: ( delete_volumes|length ) >= 1
+
+- name: Backup some volumes
+  become: yes
+  loop: "{{ volumes }}"
+  shell: "tar -czvf {{ item.backup.dest }}/{{ item.name }}.tar.gz /var/lib/docker/volumes/{{ item.name }}"
+  when: ( item.backup.create_backup ) == True

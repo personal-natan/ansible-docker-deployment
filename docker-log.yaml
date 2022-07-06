@@ -1,0 +1,6 @@
+--- 
+
+- name: Docker Automation with Ansible
+  hosts: all
+  roles: 
+    - docker-logging
