@@ -1,0 +1,17 @@
+name: Docker Swarm Deployment
+
+on: 
+  push:
+    tags:
+      - "preparation-*"
+
+jobs:
+  running-ansible-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install All Dependencies
+        run: |
+          ansible-playbook docker-prep.yaml
