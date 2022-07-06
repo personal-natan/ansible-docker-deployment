@@ -28,8 +28,8 @@ volumes:
     name: mymongo_data, 
     backup: {
       # turn True when you need to backup the volume in case there is migration
-      create_backup: False,
-      dest: "/home/natannegara"
+      create_backup: True,
+      dest: "/home/natannegara" 
     }
   }
 
