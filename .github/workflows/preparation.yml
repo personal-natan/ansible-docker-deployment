@@ -1,4 +1,4 @@
-name: Docker Swarm Deployment
+name: Docker Swarm Preparation
 
 on: 
   push:
