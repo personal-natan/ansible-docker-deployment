@@ -34,7 +34,8 @@ volumes:
   }
 
 delete_services: 
-  - "web-server-two" 
+  - "web-server-test"
+  -  mongo-database
 
 delete_volumes: 
-  - "mydata" 
+  - "mymongo_data" 
