@@ -9,7 +9,7 @@ on:
 
 jobs:
   running-ansible-script:
-    runs-on: ulocal-master
+    runs-on: local-master
 
     steps:
       - uses: actions/checkout@v3
