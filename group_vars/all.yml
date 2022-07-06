@@ -28,13 +28,14 @@ volumes:
     name: mongodb_data, #init the volume name here
     backup: {
       # turn True when you need to backup the volume in case there is migration
-      create_backup: True,
+      create_backup: False, #to create backup
       dest: "/home/natannegara" 
     }
   }
 
 delete_services: 
-  - "default" 
+  - "web-server"
+  - "mongodb-service"
 
 delete_volumes: 
-  - "default" 
+  - "mongodb_data" 
