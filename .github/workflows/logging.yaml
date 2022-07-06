@@ -1,0 +1,17 @@
+name: Container Description
+
+on: 
+  push:
+    tags:
+      - "desc-*"
+
+jobs:
+  running-ansible-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Checking Description
+        run: |
+          ansible-playbook docker-log.yaml
