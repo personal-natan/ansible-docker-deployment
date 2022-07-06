@@ -3,12 +3,10 @@
 name: Docker Swarm Deployment
 
 on: 
-  push:
-    tags:
-      - "deploy-*"
+  workflow_dispatch:
 
 jobs:
-  running-ansible-script:
+  running-ansible-script-dockeryml:
     runs-on: local-master
 
     steps:
