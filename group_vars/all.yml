@@ -1,31 +1,31 @@
 services:
 - { 
-    name_service: "web-server-test",  
+    name_service: "web-server",  
     image: "nginx:1.13",
     port: 80,
-    publish_port: 8090,
+    publish_port: 8080,
     net_mode: "ingress",
     mount_dst: "/tmp/",
     mount_src: "/home/natannegara",
     mount_type: bind,
-    replica: 3
+    replica: 2
   }
 
 - { 
-    name_service: "mongo-database", 
+    name_service: "mongodb-service", 
     image: "mongo:4-xenial",
     port: 27017,
     publish_port: 27018, 
     net_mode: "ingress",
     mount_dst: "/data/db",
-    mount_src: "mymongo_data", 
+    mount_src: "mongodb_data", # this is volume name, we stored data in this volume
     mount_type: volume,
     replica: 1
   }
 
 volumes:
 - {
-    name: mymongo_data, 
+    name: mongodb_data, #init the volume name here
     backup: {
       # turn True when you need to backup the volume in case there is migration
       create_backup: True,
@@ -34,8 +34,7 @@ volumes:
   }
 
 delete_services: 
-  - "web-server-test"
-  -  mongo-database
+  - "default" 
 
 delete_volumes: 
-  - "mymongo_data" 
+  - "default" 

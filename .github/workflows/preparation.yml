@@ -13,4 +13,4 @@ jobs:
       - name: Install All Dependencies
         run: |
           ansible-playbook docker-prep.yaml
-# this script is used for preparation (install docker etc)
+# this script is used for preparation (install docker etc, all dependencies)
