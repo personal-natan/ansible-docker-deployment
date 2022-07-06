@@ -1,12 +1,10 @@
 name: Docker Swarm Preparation
 
 on: 
-  push:
-    tags:
-      - "preparation-*"
+  workflow_dispatch:
 
 jobs:
-  running-ansible-script:
+  running-ansible-script-dockerprep:
     runs-on: local-master
 
     steps:
