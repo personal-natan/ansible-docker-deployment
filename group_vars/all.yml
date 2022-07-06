@@ -27,8 +27,8 @@ volumes:
 - {
     name: mongo_data,
     backup: {
-      # turn True when I need to backup the volume in case there is migration
-      create_backup: False,
+      # turn True when you need to backup the volume in case there is migration
+      create_backup: True,
       dest: "/home/natannegara"
     }
   }
