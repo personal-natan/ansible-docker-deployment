@@ -1,0 +1,19 @@
+
+
+name: Docker Swarm Deployment
+
+on: 
+  push:
+    tags:
+      - "deploy-*"
+
+jobs:
+  running-ansible-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Deploy Service and Volume
+        run: |
+          ansible-playbook docker-prep.yaml
