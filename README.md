@@ -40,22 +40,22 @@ WORKING WITH THIS AUTOMATION SCRIPT
         replica: $replica
      }
 
-volumes:
-- {
-    name: $volume_name,
-    backup: {
-      # turn True when you need to backup the volume in case there is migration
-      create_backup: $bool,
-      # where you'd like to store the backup file
-      dest: $path_destination 
-    }
-  }
+   volumes:
+   - {
+       name: $volume_name,
+       backup: {
+         # turn True when you need to backup the volume in case there is migration
+         create_backup: $bool,
+         # where you'd like to store the backup file
+         dest: $path_destination 
+       }
+     }
 
-delete_services: 
-  - $servicename
+   delete_services: 
+     - $servicename
 
-delete_volumes: 
-  - $volume_name 
+   delete_volumes: 
+     - $volume_name 
    ```
 4. Run manually the workflow base on this order
    - preparation.yml ( this step for installing all dependencies related to docker )
