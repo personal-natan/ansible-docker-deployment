@@ -13,7 +13,7 @@ WORKING WITH THIS AUTOMATION SCRIPT
    ```
 2. set up inventory file, your destination server. Put the IP there.
 
-3. Now set up your global variables
+3. Now set up your global variables in group_vars/all.yml
    ```
    services:
    - { 
