@@ -1,1 +1,5 @@
+[local-conn]
+localhost ansible_connection=local
+
+[remote-sv]
 34.128.79.18
