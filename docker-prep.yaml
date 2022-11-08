@@ -1,7 +1,9 @@
 --- 
 
 - name: Docker Automation with Ansible
-  hosts: remote-sv
+  # hosts: remote-sv
+  user: root
+  hosts: local-conn
   roles:
     - docker-installation
     - docker-swarm-init
