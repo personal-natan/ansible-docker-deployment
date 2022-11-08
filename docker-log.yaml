@@ -1,8 +1,8 @@
 --- 
 
 - name: Docker Automation with Ansible
-  # hosts: remote-sv
   user: root
+  # hosts: remote-sv
   hosts: local-conn
   roles: 
     - docker-logging

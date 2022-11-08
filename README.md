@@ -58,6 +58,6 @@ WORKING WITH THIS AUTOMATION SCRIPT
      - $volume_name 
    ```
 4. Run manually the workflow base on this order
-   - preparation.yml ( this step for installing all dependencies related to docker )
-   - deploy.yml ( deploy the service )
-   - logging.yml ( optional, to check description of the container )
+   - docker-prep.yml ( this step for installing all dependencies related to docker )
+   - docker-deploy-svc.yml ( deploy the service )
+   - docker-log.yml ( optional, to check description of the container )
